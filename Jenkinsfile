@@ -37,7 +37,7 @@ pipeline
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/AhamedSabid/PWJavaPOM.git'
-                    bat "mvn -Dsurefire.suiteXmlFiles-src/test/resources/testrunners/testng_regressions.xml"
+                    bat "mvn -Dsurefire.suiteXmlFiles-src/test/resources/testrunners/testng_regressions.xml test install"
                     
                 }
             }
