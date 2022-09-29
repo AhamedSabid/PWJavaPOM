@@ -36,7 +36,7 @@ pipeline
         stage('Regression Automation Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'https://github.com/AhamedSabid/PWJavaPOM'
+                    git 'https://github.com/AhamedSabid/PWJavaPOM.git'
                     bat "mvn clean test"
                     
                 }
