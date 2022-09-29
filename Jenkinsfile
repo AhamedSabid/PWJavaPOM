@@ -13,7 +13,7 @@ pipeline
             steps
             {
                  git 'https://github.com/jglick/simple-maven-project-with-tests.git'
-                 bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                 sh "mvn -Dmaven.test.failure.ignore=true clean package"
             }
             post 
             {
@@ -36,8 +36,8 @@ pipeline
         stage('Regression Automation Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'https://github.com/AhamedSabid/PWJavaPOM.git'
-                    bat "mvn clean test -Dsurefire.suiteXmlFiles-src/test/resources/testrunners/testng_regressions.xml"
+                    git 'https://github.com/AhamedSabid/PWJavaPOM'
+                    sh "mvn clean test -Dsurefire.suiteXmlFiles=testng_regressions.xml"
                     
                 }
             }
