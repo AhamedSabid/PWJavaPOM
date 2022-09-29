@@ -37,7 +37,7 @@ pipeline
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/AhamedSabid/PWJavaPOM'
-                    bat "mvn test"
+                    bat "mvn clean test"
                     
                 }
             }
